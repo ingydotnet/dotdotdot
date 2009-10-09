@@ -1,0 +1,44 @@
+OVERVIEW
+========
+
+DotDotDot, also known as dotdotdot, aka '...' is a simple system for managing
+and sharing your *nix dot (user configuration) files.
+
+After installing this software, you should have access to a command line
+program called '...'.
+
+You can run `... --help` for further information on using DotDotDot.
+
+INSTALLATION
+============
+
+To install ..., run:
+
+    sudo make install
+
+This will install ... in /usr/local/bin or /usr/bin.
+
+To install it somewhere else you can use the DOTDOTDOTBIN environment
+variable. For example:
+
+    DOTDOTDOTBIN=$HOME/bin make install
+
+Installing ... creates a symlink from your bin directory to this directory,
+so don't remove this directory after installation.
+
+The usual way to obtain this software is through github.com.
+
+    cd ~/src
+    git clone git://github.com/ingydotnet/dotdotdot.git
+    cd dotdotdot
+    sudo make install
+    ... --install
+
+UPGRADING
+=========
+
+Since the installed program is a symlink, upgrading ... is as simple as:
+
+    cd ~/src/dotdotdot
+    git pull
+
