@@ -3,3 +3,7 @@ export GIT_AUTHOR_NAME='Ingy dot Net'
 export GIT_AUTHOR_EMAIL='ingy@ingy.net'
 export GIT_COMMITTER_NAME='Ingy dot Net'
 export GIT_COMMITTER_EMAIL='ingy@ingy.net'
+
+if [ -f ~/perl5/perlbrew/etc/bashrc ]; then
+    . ~/perl5/perlbrew/etc/bashrc
+fi

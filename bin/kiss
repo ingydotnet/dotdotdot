@@ -1,0 +1,4 @@
+#!/bin/sh
+touch $1
+chmod +x $1
+$EDITOR $1

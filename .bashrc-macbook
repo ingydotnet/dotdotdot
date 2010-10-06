@@ -1,4 +1,4 @@
-export PATH=$HOME/src/kwiki/trunk/bin:$HOME/local/bin:$PATH:/opt/local/bin:/Users/ingy/.cabal/bin:/usr/local/git/bin
+export PATH=/Library/Frameworks/Python.framework/Versions/2.6/bin:$HOME/src/kwiki/trunk/bin:$HOME/local/bin:$PATH:/opt/local/bin:/Users/ingy/.cabal/bin:/usr/local/git/bin
 export MANPATH=/opt/local/share/man:$MANPATH
 export INFOPATH=/opt/local/share/info:$INFOPATH
 

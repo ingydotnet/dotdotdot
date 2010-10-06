@@ -1,0 +1,8 @@
+screens=`screen -list | wc -l`
+if [ "$screens" -eq "4" ]; then
+    screen -Ux
+elif [ "$screens" -gt "4" ]; then
+    screen -list
+else
+    echo 'You have no screen session'
+fi
