@@ -1,0 +1,14 @@
+defflow off # turn off stupid flow-control (also see: stty -ixon in ~/.zshrc)
+altscreen on # restore window contents after "vim", etc.
+ignorecase on # for searches
+defscrollback 10000 # number of lines reachable via ^A<esc>
+# defwrap off # screen's word wrap is not what you want
+startup_message off
+vbell_msg ""
+hardstatus alwayslastline "%{k${SCREENCOLOR}}%H: %-Lw%{= k${SCREENCOLOR}}%50>%n%f* %t%{-}%+Lw%< %>"
+defmonitor on
+multiuser on
+acladd ingy
+acladd pair
+acladd hacktive1
+utf8 on
