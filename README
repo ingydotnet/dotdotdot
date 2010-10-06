@@ -1,0 +1,52 @@
+DotDotDot - A technique for managing Unix "dot" files.
+
+== DESCRIPTION ==
+
+This is an attempt to DRY (http://bit.ly/cJwHB9) up Unix dot/config files like .bashrc and .vim, etc.
+
+You are encouraged to (GitHub) fork this project and tailor it to your needs. I'll keep an eye on the various forks and merge the good features back here.
+
+To understand how to use and configure this stuff correctly in multiple environments, see CONFIGURATION section below.
+
+== INSTALLATION ==
+
+To use this project:
+
+    > cd $HOME                          # Go home
+    > mkdir backup                      # Backup your old dot files
+    > cp -r .* backup/                  # Backup your old dot files
+    > git clone git@github.com:ingydotnet/dotdotdot.git     # Git the new dot files
+    > mv dotdotdot.git/{.[A-z]*,*} ./   # Move everything home (including .git)
+    > rm README                         # You probably don't need this file
+    > rmdir dotdotdot.git               # Remove the (now-empty) directory
+    > exec $SHELL                       # Setup your new environment
+
+Now your can use `git pull` and `git push` from your home directory to manage your config files and share them with others.
+
+== CONFIGURATION ==
+
+When you configure a new machine, most of the settings are common to all your machines. Some are machine specific and some are user specific. To make these files work for all situations, DotDotDot uses the $USER and $LOCAL environment variables. For instance, say you are setting up a Macbook. Your `.bashrc` file would source these files:
+
+    .bashrc-common                      # Your common settings
+    .bashrc-local                       # export $LOCAL to 'macbook'
+    .bashrc-$LOCAL                      # Your macbook settings
+    .bashrc-$USER                       # Your personal settings
+
+You should create your own, one-line `.bashrc-local` file that contains:
+
+    export LOCAL=macbook
+
+== DISCLAIMER ==
+
+Unix config files have always been very adhoc, and personal. This is finally an attempt to make them simple, sharable and managable.
+
+That said, this project is very grass roots, and based on my own personal settings. I use Bash and Vim. Maybe you use Zsh and Emacs. Everything here is fairly straightforward, but make sure you know what you are getting into before you try this.
+
+With a little bit of smarts, we can work together to make everyone happy.
+
+== COPYRIGHT ==
+
+Copyright 2010. Ingy dot Net
+
+This is open software. Feel free to copy and use it for any purpose.
+

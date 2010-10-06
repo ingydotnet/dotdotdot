@@ -1,0 +1,167 @@
+# export LANG="C"
+export LANG="en_US.UTF-8"
+export PERL_BADLANG="0"
+export EDITOR=vim
+export TZ='America/Los_Angeles'
+export PAGER=less
+export PATH=./bin:$HOME/bin:/usr/local/bin:$PATH:/sbin:/usr/sbin
+
+umask 022
+
+if [ -n "$TTY" ]; then
+    stty -ixon # get rid of ^S and ^Q
+fi
+ulimit -c unlimited # 'core' files
+d=`which dircolors` && [ -x "$d" ] && eval `dircolors`
+
+alias profile='source ~/.bashrc'
+
+export HISTIGNORE="&:[bf]g:exit"
+
+### Aliases ###
+alias ll='ls -l'
+alias la='ls -la'
+alias RM='rm -rf'
+alias perlsw='perl -Mstrict -Mwarnings'
+alias perldd='perl -MData::Dumper'
+alias perlxxx='perl -MXXX'
+alias GETf='GET -UseS'
+alias POSTf='POST -UseS'
+alias HEADf='HEAD -UseS'
+alias i=clear
+alias scpresume="rsync --partial --progress --rsh=ssh"
+alias bashup='cd; git pull; exec bash; cd -'
+alias im='vim'
+alias v='vim'
+alias :e='vim'
+alias ffpm="/Applications/Firefox\ 3.5.app/Contents/MacOS/firefox-bin --profilemanager &"
+alias firetor="/Applications/TorFox.app/Contents/MacOS/firefox-bin --profile=tordev &"
+alias firefox="/Applications/Firefox\ 3.5.app/Contents/MacOS/firefox-bin --profile=default &"
+
+alias ..='cd ..'
+alias ..1='cd ..'
+alias ..2='cd ../..'
+alias ..3='cd ../../..'
+alias ..4='cd ../../../..'
+alias ..5='cd ../../../../..'
+alias ..6='cd ../../../../../..'
+alias ..6='cd ../../../../../../..'
+alias ..7='cd ../../../../../../../..'
+alias ..8='cd ../../../../../../../../..'
+alias ..9='cd ../../../../../../../../../..'
+
+alias aptu='sudo aptitude update'
+alias aptU='sudo aptitude update; sudo aptitude dist-upgrade'
+alias apti='sudo aptitude install'
+alias aptui='sudo aptitude update; sudo aptitude install'
+alias apts='aptitude search'
+alias aptsh='aptitude show'
+
+# Shortcuts
+alias 2do='vim ~/Notes/ToDo; svn ci ~/Notes/ToDo -m...'
+alias screen='TERM=screen screen'
+function ftf {
+    if test -n "$1"; then
+        path=$1
+    else
+        path='.'
+    fi
+    find $path -type f | grep -v '\/\.svn\/'
+}
+alias ftfx='find . -type f | xargs'
+alias +w='chmod +w'
+alias +x='chmod +x'
+
+##############
+# GIT Section
+##############
+alias gst='git status'
+alias gbr='git branch'
+alias gd='git diff'
+alias gdp='gd | vim -'
+alias gdc='git diff --cached'
+alias gdcp='gdc | vim -'
+alias ga='git add'
+alias gau='git add -u'
+alias gco='git checkout'
+alias gci='git commit -v'
+alias gcim='git commit -v -m'
+alias gcia='git commit -v -a'
+alias gciam='git commit -v -a -m'
+alias gl='git log'
+alias glol='git log --pretty=oneline'
+alias glop='git log -p -1'
+alias guppy='gup && gpu'
+alias sup='git stash && gup && git stash pop'
+alias suppy='git stash && gup && gpu && git stash pop'
+alias gls='git ls-files --exclude-standard'
+alias gcp='git cherry-pick -x'
+alias gunpulled='gunpushed --st-reverse'
+alias gunpulled-all='gunpushed-all --st-reverse'
+alias gunpulledall='gunpushed-all --st-reverse'
+alias grh='git reset --hard HEAD'
+
+# use "gundo" to un-commit your last commit.  Changes will not go into your
+# index.
+#
+# use "gundo --soft" to undo the last commit, plus put the last commit back
+# into your index (adding to what you've got staged in the index).  See also:
+# "git commit --amend".
+#
+# use "gundo --hard" to blow away the last commit completely (including
+# whatever's currently staged in your index).
+alias gundo='git reset HEAD^'
+
+# Extract fields from output
+f() {
+    N=$1
+    shift;
+    awk $@ "{print \$${N:-1}}";
+}
+
+abs_path()  { perl -MCwd -le "print Cwd::abs_path(shift)" $1; }
+kiss()      { command kiss "$@";      rehash; }
+conceive()  { command conceive "$@";  rehash; }
+aginstall() { command aginstall "$@"; rehash; }
+
+# Check for GNU before aliasing:
+ls --version > /dev/null 2>&1 && alias ls='ls --classify --color=auto'
+echo x | (grep x --color >/dev/null 2>&1) && alias grep='grep --color=auto'
+
+alias muckmac="rm $MAC_FILE; echo bemucked > $MAC_FILE"
+alias accessd="cd /var/log/apache-perl/; ls"
+alias vv='vim ~/.vimrc'
+alias VV='vim ~/.vimrc'
+alias tl='test-less'
+alias tlp='test-less --prove'
+alias dict='/usr/bin/dict -dall'
+alias viml='vim !! -l'
+alias tail=multitail
+
+alias pmf='perl Makefile.PL < /dev/null'
+alias mt='make test'
+alias mp='make purge'
+alias mi='make install'
+alias smi='sudo make install'
+alias pfunk='perl -MConfig -MYAML -e "print Dump \%Config" | vim -'
+alias ysh-xs='ysh -MYAML::XS'
+alias ysh-syck='ysh -MYAML::Syck'
+alias ysh-tiny='ysh -MYAML::Tiny'
+
+# Handy for making sense of failing data-oriented tests.
+tdiff() {
+    prove -lv "$@" \
+    | perl -ne 'print if /^not ok/ or s/^# //' \
+    | vim - +'set filetype=diff'
+}
+
+function giterdone() {
+    project=$1
+    command giterdone $1
+    cd ~/src/$1
+}
+
+# cvs
+export CVS_RSH=ssh
+alias cvsdiff='cvs diff|vim -'
+
