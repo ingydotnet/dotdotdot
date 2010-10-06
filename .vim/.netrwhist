@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/ingy/src/cdent'
+let g:netrw_dirhist_2='/Users/ingy/src/cdent/cdent'
+let g:netrw_dirhist_3='/Users/ingy/src/cdent/cdent/parser'
+let g:netrw_dirhist_4='/Users/ingy/src/cdent/cdent/parser/perl6'
+let g:netrw_dirhist_5='/Users/ingy/src/cdent/cdent/parser'

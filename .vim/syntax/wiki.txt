@@ -1,0 +1,70 @@
+﻿(Adapted from the Advanced Edit Tips)
+
+*bold words*
+_italic words_
+-strikeout-
+`monospace`
+
+	|table|value|
+    |dinette|$75|
+
+	>indented
+    >lines
+
+[Page Link]
+"Link text" [Page Link]
+{link: different-workspace [Page Title]} to different-workspace
+{section:Name}
+{link: Section} (note: headings are sections too)
+{link: [Page Title] Section}
+{link: another workspace [Page Title] Section}
+http://www.socialtext.com/
+info@socialtext.com
+"Socialtext Home Page"<http://www.socialtext.com>
+"Socialtext Email" <mailto:info@socialtext.com>
+<http://www.socialtext.com/images/socialtext-140.gif>  (external image)
+
+---- (horizontal rule)
+
+* item 1
+** subitem 1
+* item 2
+
+# item 1
+## subitem 1
+# item 2
+
+^ heading 1
+^^ heading 2
+^^^ heading 3
+^^^^ heading 4
+^^^^^ heading 5
+^^^^^^ heading 6
+
+{image: logo-bar-12.gif} (image attached to page)
+{image: workspace [page name] logo-bar-12.gif} (image attached to a page in another workspace)
+{file: proposal.pdf} on this page
+{file: [page name] proposal.pdf} - [page name]
+{weblog: My Weblog}
+{category: Meeting Notes}
+Yahoo user ymsgr:yahoouser presence
+AOL user aim:aimuser presence
+
+.html
+<img src="http://mysite.com/offsite.jpg">
+.html
+
+.pre
+Block of text with no *special* punctuation
+.pre
+
+{tm}
+
+{{*this text is not bold*}}
+
+| row zer0 | 1 | 2. | 3.. |
+| Table | cell | continuation: | 
+| still row 1 |
+| now row 2 | . | .. | ... |
+
+.. vim:set ft=wiki:
