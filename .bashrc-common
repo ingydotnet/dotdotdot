@@ -120,9 +120,9 @@ f() {
 }
 
 abs_path()  { perl -MCwd -le "print Cwd::abs_path(shift)" $1; }
-kiss()      { command kiss "$@";      rehash; }
-conceive()  { command conceive "$@";  rehash; }
-aginstall() { command aginstall "$@"; rehash; }
+kiss()      { command kiss "$@"; exec $SHELL; }
+conceive()  { command conceive "$@"; exec $SHELL; }
+aginstall() { command aginstall "$@"; exec $SHELL; }
 
 # Check for GNU before aliasing:
 ls --version > /dev/null 2>&1 && alias ls='ls --classify --color=auto'
