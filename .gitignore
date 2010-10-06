@@ -1,1 +1,4 @@
+# Ignore everything so that `git status` is useful.
+# use `git add -f ...` to force add new files.
+
 *
