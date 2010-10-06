@@ -16,9 +16,9 @@ To use this project:
     > mkdir backup                      # Backup your old dot files
     > cp -r .* backup/                  # Backup your old dot files
     > git clone git@github.com:ingydotnet/dotdotdot.git     # Git the new dot files
-    > mv dotdotdot.git/{.[A-z]*,*} ./   # Move everything home (including .git)
+    > mv dotdotdot/{.[A-z]*,*} ./       # Move everything home (including .git/)
     > rm README                         # You probably don't need this file
-    > rmdir dotdotdot.git               # Remove the (now-empty) directory
+    > rmdir dotdotdot                   # Remove the (now-empty) directory
     > exec $SHELL                       # Setup your new environment
 
 Now your can use `git pull` and `git push` from your home directory to manage your config files and share them with others.
