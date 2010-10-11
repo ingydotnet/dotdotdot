@@ -1,7 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/Users/ingy/src/cdent'
-let g:netrw_dirhist_2='/Users/ingy/src/cdent/cdent'
-let g:netrw_dirhist_3='/Users/ingy/src/cdent/cdent/parser'
-let g:netrw_dirhist_4='/Users/ingy/src/cdent/cdent/parser/perl6'
-let g:netrw_dirhist_5='/Users/ingy/src/cdent/cdent/parser'
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/home/ingy/src/testml-pm6/lib/TestML'
+let g:netrw_dirhist_2='/home/ingy/src/testml-pm6/lib/TestML/Parser'
+let g:netrw_dirhist_3='/home/ingy/src/testml-py'
+let g:netrw_dirhist_4='/home/ingy/src/testml-py/testml'
+let g:netrw_dirhist_5='/home/ingy/src/testml-py/testml/parser'
+let g:netrw_dirhist_6='/home/ingy/src/cdent'
+let g:netrw_dirhist_7='/home/ingy/src/cdent/src'
+let g:netrw_dirhist_8='/home/ingy/src/cdent/src/grammar'

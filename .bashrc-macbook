@@ -17,3 +17,7 @@ export LC_ALL=en_US.UTF-8
 
 source /Users/ingy/perl5/perlbrew/etc/bashrc
 export COPYFILE_DISABLE=true
+
+alias ffpm="/Applications/Firefox\ 3.5.app/Contents/MacOS/firefox-bin --profilemanager &"
+alias firetor="/Applications/TorFox.app/Contents/MacOS/firefox-bin --profile=tordev &"
+alias firefox="/Applications/Firefox\ 3.5.app/Contents/MacOS/firefox-bin --profile=default &"

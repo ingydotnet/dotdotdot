@@ -31,12 +31,10 @@ alias HEADf='HEAD -UseS'
 alias i=clear
 alias scpresume="rsync --partial --progress --rsh=ssh"
 alias bashup='cd; git pull; exec bash; cd -'
-alias im='vim'
 alias v='vim'
+alias vi='vim'
+alias im='vim'
 alias :e='vim'
-alias ffpm="/Applications/Firefox\ 3.5.app/Contents/MacOS/firefox-bin --profilemanager &"
-alias firetor="/Applications/TorFox.app/Contents/MacOS/firefox-bin --profile=tordev &"
-alias firefox="/Applications/Firefox\ 3.5.app/Contents/MacOS/firefox-bin --profile=default &"
 
 alias ..='cd ..'
 alias ..1='cd ..'
@@ -50,15 +48,7 @@ alias ..7='cd ../../../../../../../..'
 alias ..8='cd ../../../../../../../../..'
 alias ..9='cd ../../../../../../../../../..'
 
-alias aptu='sudo aptitude update'
-alias aptU='sudo aptitude update; sudo aptitude dist-upgrade'
-alias apti='sudo aptitude install'
-alias aptui='sudo aptitude update; sudo aptitude install'
-alias apts='aptitude search'
-alias aptsh='aptitude show'
-
 # Shortcuts
-alias 2do='vim ~/Notes/ToDo; svn ci ~/Notes/ToDo -m...'
 alias screen='TERM=screen screen'
 function ftf {
     if test -n "$1"; then
@@ -100,24 +90,7 @@ alias gunpulled='gunpushed --st-reverse'
 alias gunpulled-all='gunpushed-all --st-reverse'
 alias gunpulledall='gunpushed-all --st-reverse'
 alias grh='git reset --hard HEAD'
-
-# use "gundo" to un-commit your last commit.  Changes will not go into your
-# index.
-#
-# use "gundo --soft" to undo the last commit, plus put the last commit back
-# into your index (adding to what you've got staged in the index).  See also:
-# "git commit --amend".
-#
-# use "gundo --hard" to blow away the last commit completely (including
-# whatever's currently staged in your index).
 alias gundo='git reset HEAD^'
-
-# Extract fields from output
-f() {
-    N=$1
-    shift;
-    awk $@ "{print \$${N:-1}}";
-}
 
 abs_path()  { perl -MCwd -le "print Cwd::abs_path(shift)" $1; }
 kiss()      { command kiss "$@"; exec $SHELL; }
@@ -128,8 +101,6 @@ aginstall() { command aginstall "$@"; exec $SHELL; }
 ls --version > /dev/null 2>&1 && alias ls='ls --classify --color=auto'
 echo x | (grep x --color >/dev/null 2>&1) && alias grep='grep --color=auto'
 
-alias muckmac="rm $MAC_FILE; echo bemucked > $MAC_FILE"
-alias accessd="cd /var/log/apache-perl/; ls"
 alias vv='vim ~/.vimrc'
 alias VV='vim ~/.vimrc'
 alias tl='test-less'

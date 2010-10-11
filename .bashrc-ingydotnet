@@ -1,3 +1,7 @@
+export LANG="C"
+
+source ~/.bashrc-linux
+
 screens=`screen -list | wc -l`
 if [ "$screens" -eq "4" ]; then
     screen -Ux
