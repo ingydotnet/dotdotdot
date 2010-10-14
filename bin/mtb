@@ -1,0 +1,50 @@
+#!/usr/local/bin/perl
+
+use strict;
+use warnings;
+use Cwd;
+
+my $home = Cwd::cwd;
+
+my $pattern = shift(@ARGV) || '';
+
+sub run {
+    my $cmd = shift;
+    print "> $cmd\n";
+    system($cmd) == 0 or die "cmd failed: $!";
+}
+
+run "perl Makefile.PL";
+run "make manifest";
+run "make dist";
+
+my @tars = glob('*.tar.gz');
+die "Can't find tarball"
+    unless @tars == 1;
+my $tar = $tars[0];
+my $dist = $tar;
+$dist =~ s/\.tar\.gz$// or die;
+for my $perl (
+    $^X,
+    "/Users/ingy/perl5/perlbrew/perls/perl-5.12.2/bin/perl",
+    "/Users/ingy/perl5/perlbrew/perls/perl-5.12.1/bin/perl",
+    "/Users/ingy/perl5/perlbrew/perls/perl-5.10.1/bin/perl",
+    "/Users/ingy/perl5/perlbrew/perls/perl-5.8.9/bin/perl",
+    "/Users/ingy/perl5/perlbrew/perls/perl-blead/bin/perl",
+) {
+    test($perl) if not $pattern or $perl =~ /$pattern/;
+}
+
+sub test {
+    my $perl = shift;
+    print "\n\n\n\t$perl\n\n";
+    run "tar xzf $tar";
+    chdir $dist or die;
+    run "$perl Makefile.PL";
+    run "make test";
+    chdir $home or die;
+    die unless -d $dist;
+    run "rm -fr $dist";
+}
+
+run "make purge";
