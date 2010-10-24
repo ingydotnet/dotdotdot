@@ -1,6 +1,10 @@
+path-remove /usr/games
+
 alias aptu='sudo aptitude update'
 alias aptU='sudo aptitude update; sudo aptitude dist-upgrade'
 alias apti='sudo aptitude install'
 alias aptui='sudo aptitude update; sudo aptitude install'
 alias apts='aptitude search'
 alias aptsh='aptitude show'
+
+alias clip='xsel -b'

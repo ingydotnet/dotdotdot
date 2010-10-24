@@ -4,7 +4,9 @@ export PERL_BADLANG="0"
 export EDITOR=vim
 export TZ='America/Los_Angeles'
 export PAGER=less
-export PATH=./bin:$HOME/bin:/usr/local/bin:$PATH:/sbin:/usr/sbin
+
+path-prefix $HOME/bin
+path-prefix ./bin
 
 umask 022
 
@@ -35,6 +37,7 @@ alias v='vim'
 alias vi='vim'
 alias im='vim'
 alias :e='vim'
+alias N='cd ~/src/notes'
 
 alias ..='cd ..'
 alias ..1='cd ..'

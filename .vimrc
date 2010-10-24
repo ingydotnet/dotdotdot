@@ -18,6 +18,7 @@ set termencoding=utf-8
 set encoding=utf-8
 set fileencoding=utf-8
 set pastetoggle=<F13>
+set vb t_vb=
 
 set exrc
 

@@ -1,12 +1,7 @@
-if [ -f ~/.bashrc-common ]; then
-    . ~/.bashrc-common
-fi
-if [ -f ~/.bashrc-local ]; then
-    . ~/.bashrc-local
-fi
-if [ -f ~/.bashrc-$USER ]; then
-    . ~/.bashrc-$USER
-fi
-if [ -f ~/.bashrc-$LOCAL ]; then
-    . ~/.bashrc-$LOCAL;
-fi
+sourceif() { if [ -f $1 ]; then . $1; fi }
+
+sourceif ~/.lib/path-manip.sh
+sourceif ~/.bashrc-common
+sourceif ~/.bashrc-local
+sourceif ~/.bashrc-$USER
+sourceif ~/.bashrc-$LOCAL

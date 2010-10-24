@@ -1,1 +1,2 @@
 source ~/.bashrc-linux
+export PERL_CPANM_OPT="--sudo --mirror file:///home/ingy/perl5/minicpan"
