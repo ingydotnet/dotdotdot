@@ -1,4 +1,10 @@
-export PATH=/Library/Frameworks/Python.framework/Versions/2.6/bin:$HOME/src/kwiki/trunk/bin:$HOME/local/bin:$PATH:/opt/local/bin:/Users/ingy/.cabal/bin:/usr/local/git/bin
+path-prefix /Library/Frameworks/Python.framework/Versions/2.6/bin
+path-prefix $HOME/local/bin
+path-suffix /opt/local/bin
+path-suffix /Users/ingy/.cabal/bin
+path-suffix /usr/local/git/bin
+path-suffix $HOME/src/kwiki/trunk/bin
+
 export MANPATH=/opt/local/share/man:$MANPATH
 export INFOPATH=/opt/local/share/info:$INFOPATH
 
@@ -15,7 +21,6 @@ alias xxx="ssh xxx -p 443"
 
 export LC_ALL=en_US.UTF-8
 
-source /Users/ingy/perl5/perlbrew/etc/bashrc
 export COPYFILE_DISABLE=true
 
 alias ffpm="/Applications/Firefox\ 3.5.app/Contents/MacOS/firefox-bin --profilemanager &"

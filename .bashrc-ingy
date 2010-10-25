@@ -4,5 +4,5 @@ export GIT_AUTHOR_EMAIL='ingy@ingy.net'
 export GIT_COMMITTER_NAME='Ingy dot Net'
 export GIT_COMMITTER_EMAIL='ingy@ingy.net'
 
-path-prefix /home/ingy/perl5/perlbrew/perls/current/bin
+path-prefix $HOME/perl5/perlbrew/perls/current/bin
 # path-suffix /home/ingy/perl5/perlbrew/bin
