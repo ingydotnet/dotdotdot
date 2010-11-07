@@ -1,0 +1,110 @@
+#!/usr/bin/env perl
+use warnings;
+use strict;
+
+use Error ':try';
+use Cwd qw/abs_path/;
+
+sub usage {
+    print <<END_OF_USAGE; exit 0;
+Usage: perlcheck [PERL OPTIONS] FILE [...]
+
+    This will run 'perl -c' on each file given, and will also ensure that any
+    options (such as '-T') appearing on the #! line in each file are also
+    passed on the command line.
+END_OF_USAGE
+}
+
+usage() unless @ARGV;
+
+my ( @switches, @paths );
+
+# EXTRACT: see below
+sub partition_2(&\@\@@);
+
+partition_2 { /^-/ } @switches, @paths, @ARGV;
+
+foreach my $path (@paths) {
+    my $abs_path = abs_path($path);
+    try {
+        check($abs_path, @switches);
+    }
+    catch Error::Simple with {
+        my $e = shift;
+        warn "$e\n";
+    }
+}
+
+# Given a path and a set of extra switches, run 'perl -c' appropriately on
+# $path.
+sub check {
+    my ( $path, @switches ) = @_;
+
+    if ($path =~ /\.pmc?$/) {
+        return check_mod($path);
+    }
+
+    my $options = get_options($path);
+
+    if (-1 == system "$^X -c $options @switches $path") {
+        throw Error::Simple("$^X: $!");
+    }
+}
+
+sub check_mod {
+    my $path = shift;
+
+    warn "checking perl module $path\n";
+
+    open my $mf, '<', $path or die "can't open $path: $!";
+    my $mod;
+    while (<$mf>) {
+        next unless /^\s*package (.+?);/;
+        $mod = $1;
+        last;
+    }
+    close $mf;
+
+    unless ($mod) {
+        throw Error::Simple("No package in $path?");
+    }
+
+    (my $mod_path = $path) =~ s{/}{::}g;
+    $mod_path =~ s/\.pmc?$//;
+    (my $mod_path_last = $mod_path) =~ s/^.+::([^:]+)$/$1/;
+    (my $mod_last = $mod) =~ s/^.+::([^:]+)$/$1/;
+
+    if ($mod_path !~ /\Q$mod\E$/ || $mod_path_last ne $mod_last) {
+        throw Error::Simple("$path bad package line: $mod\n");
+    }
+
+    if (-1 == system "$^X -Ilib -M$mod -wce1" ) {
+        throw Error::Simple("$^X: $!");
+    }
+    return;
+}
+
+# Returns any options in a '#!' line in the given file.
+sub get_options {
+    my ( $path ) = @_;
+
+    open F, $path or throw Error::Simple("$path: $!");
+    my $line = <F>;
+    close F;
+
+    return ( $line =~ /#!.*perl (.*)/ ? $1 : '' );
+}
+
+# EXTRACT: This belongs in something like List::Util.
+#
+# Given a predicate and a list, partition the list into two parts:  those
+# which satisfy the predicate, and those which don't.
+sub partition_2(&\@\@@) {
+    my ( $sub, $true, $false, @source ) = @_;
+
+    @$true = @$false = ();
+
+    foreach (@source) {
+        push( @{ &$sub ? $true : $false }, $_ );
+    }
+}
