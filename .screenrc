@@ -8,7 +8,5 @@ vbell_msg ""
 hardstatus alwayslastline "%{k${SCREENCOLOR}}%H: %-Lw%{= k${SCREENCOLOR}}%50>%n%f* %t%{-}%+Lw%< %>"
 defmonitor on
 multiuser on
-acladd ingy
-acladd pair
-acladd hacktive1
+acladd $SCREENUSERS
 utf8 on

@@ -1,9 +1,7 @@
 path-prefix /Library/Frameworks/Python.framework/Versions/2.6/bin
 path-prefix $HOME/local/bin
 path-suffix /opt/local/bin
-path-suffix /Users/ingy/.cabal/bin
 path-suffix /usr/local/git/bin
-path-suffix $HOME/src/kwiki/trunk/bin
 
 export MANPATH=/opt/local/share/man:$MANPATH
 export INFOPATH=/opt/local/share/info:$INFOPATH
@@ -16,8 +14,6 @@ stty -ixon
 
 function p { echo -e "\033]0;$*\007"; }
 function pp { echo -e "\033]0;$PWD\007"; }
-
-alias xxx="ssh xxx -p 443"
 
 export LC_ALL=en_US.UTF-8
 

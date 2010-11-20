@@ -2,7 +2,6 @@
 export LANG="en_US.UTF-8"
 export PERL_BADLANG="0"
 export EDITOR=vim
-export TZ='America/Los_Angeles'
 export PAGER=less
 
 path-prefix $HOME/bin
@@ -32,12 +31,10 @@ alias POSTf='POST -UseS'
 alias HEADf='HEAD -UseS'
 alias i=clear
 alias scpresume="rsync --partial --progress --rsh=ssh"
-alias bashup='cd; git pull; exec bash; cd -'
 alias v='vim'
 alias vi='vim'
 alias im='vim'
 alias :e='vim'
-alias N='cd ~/src/notes'
 
 alias ..='cd ..'
 alias ..1='cd ..'
@@ -59,9 +56,9 @@ function ftf {
     else
         path='.'
     fi
-    find $path -type f | grep -v '\/\.svn\/'
+    find $path -type f | grep -v '\/\.git\/'
 }
-alias ftfx='find . -type f | xargs'
+alias ftfx='find . -type f | grep -v "\/\.git\/" | xargs'
 alias +w='chmod +w'
 alias +x='chmod +x'
 
@@ -89,53 +86,21 @@ alias sup='git stash && gup && git stash pop'
 alias suppy='git stash && gup && gpu && git stash pop'
 alias gls='git ls-files --exclude-standard'
 alias gcp='git cherry-pick -x'
-alias gunpulled='gunpushed --st-reverse'
-alias gunpulled-all='gunpushed-all --st-reverse'
-alias gunpulledall='gunpushed-all --st-reverse'
 alias grh='git reset --hard HEAD'
 alias gundo='git reset HEAD^'
 
 abs_path()  { perl -MCwd -le "print Cwd::abs_path(shift)" $1; }
 kiss()      { command kiss "$@"; exec $SHELL; }
-conceive()  { command conceive "$@"; exec $SHELL; }
-aginstall() { command aginstall "$@"; exec $SHELL; }
 
-# Check for GNU before aliasing:
-ls --version > /dev/null 2>&1 && alias ls='ls --classify --color=auto'
-echo x | (grep x --color >/dev/null 2>&1) && alias grep='grep --color=auto'
-
-alias vv='vim ~/.vimrc'
+alias vv='vim .vimrc'
 alias VV='vim ~/.vimrc'
-alias tl='test-less'
-alias tlp='test-less --prove'
 alias dict='/usr/bin/dict -dall'
 alias viml='vim !! -l'
-alias tail=multitail
 
+# Perl module stuff
 alias pmf='perl Makefile.PL < /dev/null'
 alias mt='make test'
 alias mp='make purge'
 alias mi='make install'
 alias smi='sudo make install'
 alias pfunk='perl -MConfig -MYAML -e "print Dump \%Config" | vim -'
-alias ysh-xs='ysh -MYAML::XS'
-alias ysh-syck='ysh -MYAML::Syck'
-alias ysh-tiny='ysh -MYAML::Tiny'
-
-# Handy for making sense of failing data-oriented tests.
-tdiff() {
-    prove -lv "$@" \
-    | perl -ne 'print if /^not ok/ or s/^# //' \
-    | vim - +'set filetype=diff'
-}
-
-function giterdone() {
-    project=$1
-    command giterdone $1
-    cd ~/src/$1
-}
-
-# cvs
-export CVS_RSH=ssh
-alias cvsdiff='cvs diff|vim -'
-

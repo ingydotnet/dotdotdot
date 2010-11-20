@@ -1,8 +1,16 @@
 DotDotDot - A technique for managing Unix "dot" files.
 
+== NOTE ==
+
+See https://github.com/ingydotnet/... first.
+
+'...' is a command for managing and installing your dot file repositories.
+
 == DESCRIPTION ==
 
-This is an attempt to DRY (http://bit.ly/cJwHB9) up Unix dot/config files like .bashrc and .vim, etc.
+This is a repository of common Unix dot/config files like .bashrc and .vim, etc. They are intended to work with the '...' installation program.
+
+This is an attempt to DRY (http://bit.ly/cJwHB9) up the management of these files.
 
 You are encouraged to (GitHub) fork this project and tailor it to your needs. I'll keep an eye on the various forks and merge the good features back here.
 
@@ -10,18 +18,21 @@ To understand how to use and configure this stuff correctly in multiple environm
 
 == INSTALLATION ==
 
+This 
+
 To use this project:
 
     > cd $HOME                          # Go home
-    > mkdir backup                      # Backup your old dot files
-    > cp -r .* backup/                  # Backup your old dot files
-    > git clone git@github.com:ingydotnet/dotdotdot.git     # Git the new dot files
-    > mv dotdotdot/{.[A-z]*,*} ./       # Move everything home (including .git/)
-    > rm README                         # You probably don't need this file
-    > rmdir dotdotdot                   # Remove the (now-empty) directory
-    > exec $SHELL                       # Setup your new environment
-
-Now your can use `git pull` and `git push` from your home directory to manage your config files and share them with others.
+    > git clone git@github.com:ingydotnet/....git     # Install ...
+    > .../bin/... backup                # Backup your old dot files
+    > cd .../src/                       # Where your repos (like this one) go
+    > git clone git@github.com:ingydotnet/dotdotdot.git     # Git this
+    > cd ..                             # Go back
+    > cp conf.example conf              # Create a working conf
+    > edit conf                         # Configure ...
+    > .../bin/... install               # Install your dot files!
+    # Now ... is in your PATH
+    > ... help                          # Get help on more ... commands
 
 == CONFIGURATION ==
 
@@ -46,11 +57,10 @@ With a little bit of smarts, we can work together to make everyone happy.
 
 == CAUTION ==
 
-You need to be smart about not putting sensitive information like passwords, into a public repository. You have been warned.
+You need to be wise about not putting sensitive information like passwords, into a public repository. You have been warned.
 
 == COPYRIGHT ==
 
 Copyright 2010. Ingy dot Net
 
 This is open software. Feel free to copy and use it for any purpose.
-

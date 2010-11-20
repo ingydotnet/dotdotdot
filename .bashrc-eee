@@ -1,5 +1,0 @@
-source ~/.bashrc-linux
-export PERL_CPANM_OPT="--sudo --mirror file:///home/ingy/perl5/minicpan"
-
-alias tpoff='xinput set-prop 13 134 0'
-alias tpon='xinput set-prop 13 134 1'
