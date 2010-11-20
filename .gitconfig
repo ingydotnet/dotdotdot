@@ -1,0 +1,8 @@
+[alias]
+	br = branch
+	ci = commit
+	co = checkout
+	st = status
+        di = diff
+[push]
+	default = current

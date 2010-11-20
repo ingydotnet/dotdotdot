@@ -4,6 +4,7 @@ export PERL_BADLANG="0"
 export EDITOR=vim
 export PAGER=less
 
+path-prefix $HOME/.../bin
 path-prefix $HOME/bin
 path-prefix ./bin
 
