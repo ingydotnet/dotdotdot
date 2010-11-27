@@ -4,9 +4,13 @@ ignorecase on # for searches
 defscrollback 10000 # number of lines reachable via ^A<esc>
 # defwrap off # screen's word wrap is not what you want
 startup_message off
-vbell_msg ""
-hardstatus alwayslastline "%{k${SCREENCOLOR}}%H: %-Lw%{= k${SCREENCOLOR}}%50>%n%f* %t%{-}%+Lw%< %>"
+vbell off
 defmonitor on
 multiuser on
-acladd $SCREENUSERS
 utf8 on
+hardstatus alwayslastline
+hardstatus string "%{k${SCREENCOLOR}}%H: %-Lw%{= k${SCREENCOLOR}}%50>%n%f* %t%{-}%+Lw%< %>"
+
+acladd $SCREENUSERS
+
+source ".screenrc-${USER}"

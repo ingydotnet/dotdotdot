@@ -1,4 +1,3 @@
-# export LANG="C"
 export LANG="en_US.UTF-8"
 export PERL_BADLANG="0"
 export EDITOR=vim
