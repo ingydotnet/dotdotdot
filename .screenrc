@@ -13,6 +13,6 @@ hardstatus string "%{k${SCREENCOLOR}}%H: %-Lw%{= k${SCREENCOLOR}}%50>%n%f* %t%{-
 
 acladd $SCREENUSERS
 
-source ".screenrc-local"
-source ".screenrc-${USER}"
-source ".screenrc-${LOCAL}"
+source ".screenrc../local"
+source ".screenrc../${USER}"
+source ".screenrc../${LOCAL}"
