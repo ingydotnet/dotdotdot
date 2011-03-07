@@ -104,3 +104,15 @@ alias mp='make purge'
 alias mi='make install'
 alias smi='sudo make install'
 alias pfunk='perl -MConfig -MYAML -e "print Dump \%Config" | vim -'
+
+if [ "$TERM" = "screen" ]; then
+  swtcwd () {
+    local HPWD="$PWD"
+    case $HPWD in
+      $HOME) HPWD="~";;
+      $HOME/*) HPWD=`echo $PWD | perl -pe 's!.*/!!'`;;
+    esac
+    printf '\ek%s\e\\' "$HPWD"
+  }
+  PROMPT_COMMAND="swtcwd; $PROMPT_COMMAND"
+fi
