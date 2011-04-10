@@ -32,14 +32,6 @@ map \\# :s/^# // <CR> :noh <CR>
 map \/ :s,^,// , <CR> :noh <CR>
 map \\/ :s,^// ,, <CR> :noh <CR>
 
-" map \1 :up<CR> " ingy doesn't like this (yet)
-map \1 :w<CR>
-map \2 :up<CR>:!perlcheck -Ilib %<CR>
-map \3 :up<CR>:call RunLastT()<CR>
-map \4 :up<CR>:!prove -ls t<CR>
-map \5 :up<CR>:!run-wiki-tests --fake-content-file %<CR>
-map \6 :up<CR>:!make all install<CR>
-
 map \d :.!echo -n 'date:    '; date<CR>
 
 " Like ^] (tag lookup), but only in this file.  Sort of.  It looks for
