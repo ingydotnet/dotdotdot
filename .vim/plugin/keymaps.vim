@@ -20,6 +20,9 @@ map \+ <C-^>
 map \] :w<UP><CR>
 map \[ :<UP><CR>
 
+map \1 :w<CR>
+map \2 :w|!perlcheck -Ilib %<CR>
+
 map \\\ :noh<CR>:set nopaste<CR>:set nolist<CR>
 map \q :q!<CR>
 map \p :set paste<CR>
