@@ -1,5 +1,5 @@
-path-prefix /Library/Frameworks/Python.framework/Versions/2.6/bin
-path-prefix $HOME/local/bin
+path-prepend /Library/Frameworks/Python.framework/Versions/2.6/bin
+path-prepend $HOME/local/bin
 path-suffix /opt/local/bin
 path-suffix /usr/local/git/bin
 
