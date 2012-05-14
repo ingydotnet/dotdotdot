@@ -1,4 +1,4 @@
-sourceif() { if [ -f $1 ]; then . $1; fi }
+sourceif() { if [ -f "$1" ]; then . "$1"; fi }
 
 sourceif ~/.../lib/path-manip.sh
 sourceif ~/.bashrc../common
