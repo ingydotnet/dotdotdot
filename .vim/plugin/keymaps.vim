@@ -17,6 +17,8 @@ map \- <C-w>_
 map \| <C-w><bar>
 map \+ <C-^>
 
+map ; :
+
 map \] :wa<Bar><UP><CR>
 map \[ :<UP><CR>
 
