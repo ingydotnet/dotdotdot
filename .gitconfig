@@ -6,3 +6,6 @@
         di = diff
 [push]
 	default = current
+[user]
+	email = you@example.com
+	name = Your Name
