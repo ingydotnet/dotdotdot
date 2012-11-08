@@ -32,10 +32,10 @@ map \v :!vim .vimrc<CR>:so .vimrc<CR>
 map \V :!vim ~/.vimrc<CR>:so ~/.vimrc<CR>
 map \vf :!vim <cword><CR>:so <cword><CR>
 
-map \# :s/^/# / <CR> :noh <CR>
-map \\# :s/^# // <CR> :noh <CR>
-map \/ :s,^,// , <CR> :noh <CR>
-map \\/ :s,^// ,, <CR> :noh <CR>
+map \# :s/^/# / <CR>:noh <CR>
+map \\# :s/^# // <CR>:noh <CR>
+map \/ :s,^,// , <CR>:noh <CR>
+map \\/ :s,^// ,, <CR>:noh <CR>
 
 map \d :.!echo -n 'date:    '; date<CR>
 
