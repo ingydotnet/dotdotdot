@@ -1,5 +1,5 @@
 imap  
- 
+
 " Fix delete
 if &term == "xterm-color"
   set t_kb=
